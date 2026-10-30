@@ -1,0 +1,145 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LocalBiz – Local Business Marketplace</title><script>var PH="data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="500" height="350"><defs><linearGradient id="g"><stop offset="0" stop-color="#ff8a70"/><stop offset="1" stop-color="#6c5ce7"/></linearGradient></defs><rect width="500" height="350" fill="url(#g)"/></svg>');</script><style>
+[hidden]{display:none!important}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f6f7fb;color:#222}
+a{text-decoration:none;color:inherit}.wrap{max-width:1100px;margin:auto;padding:0 20px}.narrow{max-width:680px}
+#categories-section{scroll-margin-top:70px}
+header{background:#fff;position:sticky;top:0;z-index:20;box-shadow:0 2px 10px #0001}
+.nav{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font-size:1.6rem;font-weight:800}.logo span{color:#ff5a3c}
+nav a{margin-left:20px;font-weight:600;transition:.2s}nav a:hover,nav a.on{color:#ff5a3c}
+#burger{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer}
+.hero{background:#222;position:relative;height:560px;overflow:hidden;display:flex;align-items:center;color:#fff}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;animation:fade 15s infinite}
+.s1{background-image:url(https://picsum.photos/seed/market/1600/800),linear-gradient(120deg,#2d3436,#6c5ce7)}.s2{background-image:url(https://picsum.photos/seed/shopstreet/1600/800),linear-gradient(120deg,#2d3436,#6c5ce7);animation-delay:5s}.s3{background-image:url(https://picsum.photos/seed/cafe/1600/800),linear-gradient(120deg,#2d3436,#6c5ce7);animation-delay:10s}
+@keyframes fade{0%{opacity:0;transform:scale(1)}8%,33%{opacity:1}41%,100%{opacity:0;transform:scale(1.1)}}
+.overlay{position:absolute;inset:0;background:linear-gradient(90deg,#000c,#0003)}
+.hero-text{position:relative;width:100%;animation:up 1s ease both}.hero h1{font-size:3rem;max-width:640px;line-height:1.2}.hero em{color:#ff8a70;font-style:normal}
+.hero p{margin:16px 0 24px;font-size:1.15rem;max-width:520px}
+@keyframes up{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+.herosearch{display:flex;gap:10px;max-width:520px}.herosearch input{flex:1}
+.btn{display:inline-block;background:#ff5a3c;color:#fff;padding:12px 26px;border:0;border-radius:30px;font-weight:700;cursor:pointer;transition:.25s;font-size:1rem}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 18px #ff5a3c55}nav .btn.sm{padding:8px 20px;color:#fff;margin-left:20px}
+.title{margin:44px 0 22px;font-size:1.7rem}
+.cat-grid,.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.cat-card{background:linear-gradient(135deg,#ff8a70,#6c5ce7);position:relative;border-radius:16px;overflow:hidden;height:190px;box-shadow:0 4px 14px #0002;transition:.3s;display:block}
+.cat-card img{width:100%;height:100%;object-fit:cover;transition:.5s}.cat-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,#000b,#0000)}
+.cat-info{position:absolute;left:16px;bottom:14px;z-index:2;color:#fff}.cat-info span{font-size:1.6rem}.cat-info h3{font-size:1.1rem}
+.cat-card:hover{transform:translateY(-6px)}.cat-card:hover img{transform:scale(1.12)}
+.card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 14px #0001;transition:.3s}.grid .card:hover{transform:translateY(-6px);box-shadow:0 12px 26px #0002}
+.card img{width:100%;height:170px;object-fit:cover}.card .body,.pad{padding:18px}
+.tag{display:inline-block;background:#ffe9e4;color:#ff5a3c;font-size:.75rem;font-weight:700;padding:3px 10px;border-radius:20px}
+.card h3{margin:8px 0 6px}.muted,.card p{color:#666;font-size:.92rem;margin-top:4px}
+.offer{padding:22px;border-left:6px solid #ff5a3c}.offer b{font-size:1.4rem;color:#ff5a3c}
+.code{display:inline-block;margin-top:12px;border:2px dashed #ff5a3c;padding:6px 14px;border-radius:8px;font-weight:700;cursor:pointer;background:#fff}
+.stats{display:flex;justify-content:space-around;text-align:center;background:#222;color:#fff;border-radius:16px;padding:34px;margin:50px 0}.stats b{display:block;font-size:2.4rem;color:#ff8a70}
+.cta{background:linear-gradient(120deg,#ff5a3c,#ff8a70);color:#fff;text-align:center;padding:60px 20px}.cta p{margin:10px 0 22px}.cta .btn{background:#fff;color:#ff5a3c}
+.filters{display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap}.filters input{flex:1;min-width:200px}
+input,select,textarea{padding:12px;border:1px solid #ddd;border-radius:10px;font-size:1rem;font-family:inherit}
+.form{padding:26px;display:flex;flex-direction:column;gap:14px;margin-top:10px}.ok{color:#1a8a3c;font-weight:600;margin-top:12px}
+.lead{font-size:1.1rem;line-height:1.7;color:#444}.about-img{width:100%;height:280px;object-fit:cover;border-radius:16px;margin:24px 0}
+.three{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}
+.tabs{display:flex;gap:10px;margin:44px 0 16px}.tab{flex:1;padding:12px;border:0;border-radius:10px;background:#e8e8ef;font-weight:700;cursor:pointer}.tab.on{background:#ff5a3c;color:#fff}
+footer{background:#111;color:#bbb;margin-top:60px;padding-top:40px}.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
+footer a,footer b{display:block;margin-bottom:8px}footer b{color:#fff}footer .logo{color:#fff}.copy{text-align:center;padding:20px;margin-top:30px;border-top:1px solid #333}
+@media(max-width:800px){#burger{display:block}#menu{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;flex-direction:column;padding:10px 20px;box-shadow:0 8px 14px #0002}#menu.open{display:flex}nav a{margin:10px 0}nav .btn.sm{margin:10px 0;text-align:center}
+.hero h1{font-size:2.1rem}.stats{flex-direction:column;gap:20px}.fgrid{grid-template-columns:1fr}}
+
+</style></head><body><noscript><p style="padding:12px;background:#fff3cd;text-align:center">Please enable JavaScript for search, forms and page switching.</p></noscript>
+<header><div class="wrap nav"><a class="logo" href="#/home">Local<span>Biz</span></a><button id="burger" aria-label="menu">☰</button><nav id="menu"><a href="#/home">Home</a><a href="#/categories">Categories</a><a href="#/marketplace">Marketplace</a><a href="#/offers">Offers</a><a href="#/about">About</a><a href="#/contact">Contact</a><a class="btn sm" href="#/login">Login</a></nav></div></header>
+<div class="page" id="p-home">
+<section class="hero"><div class="slide s1"></div><div class="slide s2"></div><div class="slide s3"></div><div class="overlay"></div>
+<div class="wrap hero-text"><h1>Discover &amp; Support <em>Local Businesses</em></h1><p>Find shops, food, services near you — and promote your own business for free.</p>
+<form class="herosearch" onsubmit="location.hash='#/marketplace?q='+encodeURIComponent(this.q.value);route();return false"><input name="q" placeholder="Search salon, cafe, tuition..."><button class="btn">Search</button></form></div></section>
+<section id="categories-section" class="wrap"><h2 class="title">Browse by Category</h2><div class="cat-grid"><a href="#/marketplace?category=Food" class="cat-card"><img onerror="this.onerror=null;this.src=PH" src="https://picsum.photos/seed/catFood/400/300" alt="Food"><div class="cat-info"><span>🍽️</span><h3>Food &amp; Restaurants</h3></div></a><a href="#/marketplace?category=Shopping" class="cat-card"><img onerror="this.onerror=null;this.src=PH" src="https://picsum.photos/seed/catShopping/400/300" alt="Shopping"><div class="cat-info"><span>🛍️</span><h3>Shopping</h3></div></a><a href="#/marketplace?category=Salon" class="cat-card"><img onerror="this.onerror=null;this.src=PH" src="https://picsum.photos/seed/catSalon/400/300" alt="Salon"><div class="cat-info"><span>💇</span><h3>Salon &amp; Beauty</h3></div></a><a href="#/marketplace?category=Services" class="cat-card"><img onerror="this.onerror=null;this.src=PH" src="https://picsum.photos/seed/catServices/400/300" alt="Services"><div class="cat-info"><span>🔧</span><h3>Home Services</h3></div></a><a href="#/marketplace?category=Education" class="cat-card"><img onerror="this.onerror=null;this.src=PH" src="https://picsum.photos/seed/catEducation/400/300" alt="Education"><div class="cat-info"><span>📚</span><h3>Education</h3></div></a><a href="#/marketplace?category=Health" class="cat-card"><img onerror="this.onerror=null;this.src=PH" src="https://picsum.photos/seed/catHealth/400/300" alt="Health"><div class="cat-info"><span>🏥</span><h3>Health &amp; Fitness</h3></div></a></div></section>
+<section class="wrap"><h2 class="title">Featured Businesses</h2><div class="grid" id="featured"></div></section>
+<section class="wrap"><div class="stats"><div><b data-n="500">0</b><span>Businesses</span></div><div><b data-n="12000">0</b><span>Customers</span></div><div><b data-n="25">0</b><span>Categories</span></div></div></section>
+<section class="cta"><h2>Own a business?</h2><p>List it today and reach thousands of nearby customers.</p><a class="btn" href="#/add-business">Add Your Business</a></section>
+</div>
+<div class="page" id="p-categories" hidden>
+<section class="wrap"><h2 class="title">All Categories</h2><div class="cat-grid"><a href="#/marketplace?category=Food" class="cat-card"><img onerror="this.onerror=null;this.src=PH" src="https://picsum.photos/seed/catFood/400/300" alt="Food"><div class="cat-info"><span>🍽️</span><h3>Food &amp; Restaurants</h3></div></a><a href="#/marketplace?category=Shopping" class="cat-card"><img onerror="this.onerror=null;this.src=PH" src="https://picsum.photos/seed/catShopping/400/300" alt="Shopping"><div class="cat-info"><span>🛍️</span><h3>Shopping</h3></div></a><a href="#/marketplace?category=Salon" class="cat-card"><img onerror="this.onerror=null;this.src=PH" src="https://picsum.photos/seed/catSalon/400/300" alt="Salon"><div class="cat-info"><span>💇</span><h3>Salon &amp; Beauty</h3></div></a><a href="#/marketplace?category=Services" class="cat-card"><img onerror="this.onerror=null;this.src=PH" src="https://picsum.photos/seed/catServices/400/300" alt="Services"><div class="cat-info"><span>🔧</span><h3>Home Services</h3></div></a><a href="#/marketplace?category=Education" class="cat-card"><img onerror="this.onerror=null;this.src=PH" src="https://picsum.photos/seed/catEducation/400/300" alt="Education"><div class="cat-info"><span>📚</span><h3>Education</h3></div></a><a href="#/marketplace?category=Health" class="cat-card"><img onerror="this.onerror=null;this.src=PH" src="https://picsum.photos/seed/catHealth/400/300" alt="Health"><div class="cat-info"><span>🏥</span><h3>Health &amp; Fitness</h3></div></a></div></section>
+</div>
+<div class="page" id="p-marketplace" hidden>
+<section class="wrap"><h2 class="title">Marketplace</h2>
+<div class="filters"><input id="search" placeholder="Search businesses..."><select id="category"><option value="All">All Categories</option><option>Food</option><option>Shopping</option><option>Salon</option><option>Services</option><option>Education</option><option>Health</option></select></div>
+<div class="grid" id="grid"></div><p id="empty" class="muted" hidden>No businesses found.</p></section>
+</div>
+<div class="page" id="p-offers" hidden>
+<section class="wrap"><h2 class="title">Deals &amp; Offers</h2><div class="grid" id="offers"></div></section>
+</div>
+<div class="page" id="p-about" hidden>
+<section class="wrap narrow"><h2 class="title">About LocalBiz</h2>
+<p class="lead">LocalBiz is a marketplace built to help small shops, cafes, salons and service providers get discovered by people in their own neighbourhood.</p>
+<img onerror="this.onerror=null;this.src=PH" class="about-img" src="https://picsum.photos/seed/team/900/400" alt="Our team">
+<div class="three"><div class="card pad"><h3>🎯 Mission</h3><p>Grow local economies by giving every business an online presence.</p></div><div class="card pad"><h3>🤝 Community</h3><p>Connect customers with trusted businesses nearby.</p></div><div class="card pad"><h3>🚀 Free Promotion</h3><p>List your business in minutes at no cost.</p></div></div></section>
+</div>
+<div class="page" id="p-add-business" hidden>
+<section class="wrap narrow"><h2 class="title">Promote Your Business</h2>
+<form id="bizForm" class="card form"><input name="name" placeholder="Business name" required>
+<select name="category" required><option value="">Select category</option><option>Food</option><option>Shopping</option><option>Salon</option><option>Services</option><option>Education</option><option>Health</option></select>
+<input name="phone" placeholder="Phone number" required><input name="address" placeholder="Address / Area" required><textarea name="desc" rows="4" placeholder="Describe your business" required></textarea>
+<button class="btn" type="submit">Submit Business</button><p id="msg" class="ok" hidden>✅ Business added! Check the Marketplace.</p></form></section>
+</div>
+<div class="page" id="p-login" hidden>
+<section class="wrap narrow"><div class="tabs"><button class="tab on" data-t="login">Login</button><button class="tab" data-t="register">Register</button></div>
+<form id="login" class="card form authf"><input type="email" placeholder="Email" required><input type="password" placeholder="Password" required><button class="btn">Login</button></form>
+<form id="register" class="card form authf" hidden><input placeholder="Full name" required><input type="email" placeholder="Email" required><input type="password" placeholder="Password" minlength="6" required><button class="btn">Create Account</button></form>
+<p id="authmsg" class="ok" hidden></p></section>
+</div>
+<div class="page" id="p-contact" hidden>
+<section class="wrap narrow"><h2 class="title">Contact Us</h2>
+<form id="contactForm" class="card form"><input placeholder="Your name" required><input type="email" placeholder="Your email" required><textarea rows="5" placeholder="Your message" required></textarea>
+<button class="btn">Send Message</button><p id="cmsg" class="ok" hidden>✅ Thank you! We will reply soon.</p></form></section>
+</div>
+<footer><div class="wrap fgrid"><div><div class="logo">Local<span>Biz</span></div><p>Helping local businesses get discovered online.</p></div><div><b>Pages</b><a href="#/marketplace">Marketplace</a><a href="#/offers">Offers</a><a href="#/add-business">Add Business</a></div><div><b>Contact</b><p>hello@localbiz.in</p><p>Ludhiana, Punjab</p></div></div><div class="copy">© 2026 LocalBiz. All rights reserved.</div></footer>
+<script>
+const defaults=[
+{name:"Sharma Sweets & Cafe",category:"Food",phone:"98765 43210",address:"Model Town, Ludhiana",desc:"Fresh sweets, snacks and filter coffee."},
+{name:"Urban Trends Boutique",category:"Shopping",phone:"98140 11223",address:"Ferozepur Road",desc:"Latest men's and women's fashion."},
+{name:"Glow Beauty Salon",category:"Salon",phone:"99150 55667",address:"Sarabha Nagar",desc:"Hair, skin and bridal makeup experts."},
+{name:"QuickFix Electricals",category:"Services",phone:"97790 88990",address:"BRS Nagar",desc:"Home repairs and appliance servicing."},
+{name:"BrightPath Tuition",category:"Education",phone:"98888 77665",address:"Civil Lines",desc:"Coaching for school and competitive exams."},
+{name:"FitZone Gym",category:"Health",phone:"98722 33445",address:"Pakhowal Road",desc:"Modern equipment, trainers and yoga classes."},
+{name:"Punjabi Dhaba Express",category:"Food",phone:"98030 12121",address:"GT Road",desc:"Authentic Punjabi thali and lassi."},
+{name:"Gadget Galaxy",category:"Shopping",phone:"98150 45454",address:"Chaura Bazaar",desc:"Mobiles, accessories and repairs."}];
+const offers=[
+{t:"Sharma Sweets & Cafe",d:"20% OFF on all sweets",c:"SWEET20"},{t:"Glow Beauty Salon",d:"Flat 30% OFF on bridal packages",c:"GLOW30"},
+{t:"FitZone Gym",d:"First month FREE",c:"FIT1FREE"},{t:"BrightPath Tuition",d:"Free demo class + 10% OFF",c:"LEARN10"}];
+const store=()=>{if(window._mem)return window._mem;try{return JSON.parse(localStorage.getItem("biz")||"[]")}catch(e){return[]}};
+const load=()=>[...defaults,...store()];
+const card=b=>`<div class="card"><img onerror="this.onerror=null;this.src=PH" src="https://picsum.photos/seed/${encodeURIComponent(b.name)}/500/350" alt="${b.name}" loading="lazy"><div class="body"><span class="tag">${b.category}</span><h3>${b.name}</h3><p>${b.desc}</p><p>📍 ${b.address}</p><p>📞 ${b.phone}</p></div></div>`;
+const $=id=>document.getElementById(id),getQ=()=>new URLSearchParams(location.hash.split("?")[1]||"");
+
+$("burger").onclick=()=>$("menu").classList.toggle("open");
+
+if($("grid")){
+  const s=$("search"),c=$("category"),e=$("empty");
+  
+  const render=()=>{const q=s.value.toLowerCase();
+    const l=load().filter(b=>(c.value==="All"||b.category===c.value)&&(b.name+b.desc).toLowerCase().includes(q));
+    $("grid").innerHTML=l.map(card).join("");e.hidden=l.length>0};
+  s.oninput=c.onchange=render;window.syncMarket=()=>{const q=getQ();s.value=q.get("q")||"";c.value=q.get("category")||"All";render()};syncMarket();
+}
+if($("featured"))$("featured").innerHTML=defaults.slice(0,3).map(card).join("");
+if($("offers")){
+  $("offers").innerHTML=offers.map(o=>`<div class="card offer"><b>${o.d}</b><h3>${o.t}</h3><span class="code" data-c="${o.c}">${o.c} — click to copy</span></div>`).join("");
+  document.querySelectorAll(".code").forEach(x=>x.onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(x.dataset.c);x.textContent="✅ Copied!"});
+}
+document.querySelectorAll("[data-n]").forEach(el=>{const t=+el.dataset.n;let n=0;const id=setInterval(()=>{n+=t/80;if(n>=t){n=t;clearInterval(id)}el.textContent=Math.floor(n).toLocaleString()+"+"},20)});
+
+const bf=$("bizForm");
+if(bf)bf.onsubmit=ev=>{ev.preventDefault();const d=Object.fromEntries(new FormData(bf)),a=store();a.push(d);window._mem=a;try{localStorage.setItem("biz",JSON.stringify(a))}catch(e){}bf.reset();$("msg").hidden=false};
+const cf=$("contactForm");
+if(cf)cf.onsubmit=ev=>{ev.preventDefault();cf.reset();$("cmsg").hidden=false};
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x===t));
+  $("login").hidden=t.dataset.t!=="login";$("register").hidden=t.dataset.t!=="register"});
+document.querySelectorAll(".authf").forEach(f=>f.onsubmit=ev=>{ev.preventDefault();f.reset();const m=$("authmsg");m.textContent=f.id==="login"?"✅ Logged in (demo).":"✅ Account created (demo).";m.hidden=false});
+
+const route=()=>{let n=(location.hash.slice(2).split("?")[0])||"home";if(!$("p-"+n))n="home";
+document.querySelectorAll(".page").forEach(p=>p.hidden=p.id!=="p-"+n);
+document.querySelectorAll("#menu a").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#/"+n));
+$("menu").classList.remove("open");window.scrollTo(0,0);if(n==="marketplace"&&window.syncMarket)syncMarket()};
+addEventListener("hashchange",route);document.addEventListener("click",e=>{if(e.target.closest('a[href^="#/"]'))setTimeout(route,0)});route();
+
+</script></body></html>
